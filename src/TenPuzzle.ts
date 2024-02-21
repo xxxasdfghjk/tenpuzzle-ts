@@ -1,46 +1,5 @@
-const permutation = (array: number[]): Array<number[]> => {
-    const size = array.length;
-    if (size === 1) {
-        return [[array[0]]];
-    }
-    const head = array[0];
-    const subPerm = permutation(array.slice(1));
-    let res: Array<number[]> = [];
-    array.forEach((num) => {
-        const replaced = subPerm.map((arr) => arr.map((elem) => (elem === num ? head : elem)));
-        const addHead = replaced.map((e) => [num, ...e]);
-        res = [...res, ...addHead];
-    });
-    return res;
-};
-
-const permutationArray = (num: number) => {
-    return permutation(new Array(num).fill(0).map((e, i) => i));
-};
-
-type TreeNode =
-    | {
-          isLeaf: true;
-          value: number;
-      }
-    | {
-          children: [TreeNode, TreeNode];
-          isLeaf: false;
-          op: (typeof OPERATION)[number];
-      };
-const OPERATION = ["+", "-", "*", "/"] as const;
-
-const inOrderSearch = (node: TreeNode) => {
-    if (node.isLeaf) {
-        process.stdout.write(String(node.value));
-    } else {
-        process.stdout.write("(");
-        inOrderSearch(node.children[0]);
-        process.stdout.write(node.op);
-        inOrderSearch(node.children[1]);
-        process.stdout.write(")");
-    }
-};
+import { TreeNode } from "../types/TreeNode";
+import { allShuffled } from "./Permutation";
 
 const inOrderSearchString = (node: TreeNode): string => {
     if (node.isLeaf) {
@@ -95,11 +54,6 @@ const createAllTree = (array: number[]): TreeNode[] => {
         }
         return result;
     }
-};
-
-const allShuffled = (array: number[]): Array<number[]> => {
-    const permutations = permutationArray(array.length);
-    return permutations.map((e) => e.map((l) => array[l]));
 };
 
 export const solve = (array: number[], result: number, all?: boolean): string[] => {
