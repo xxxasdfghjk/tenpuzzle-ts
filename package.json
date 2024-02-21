@@ -1,0 +1,13 @@
+{
+    "scripts": {
+        "run": "./node_modules/.bin/ts-node TenPuzzle.ts"
+    },
+    "dependencies": {
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3",
+        "zod": "^3.22.4"
+    },
+    "devDependencies": {
+        "@types/node": "^20.11.19"
+    }
+}
