@@ -1,7 +1,17 @@
 {
+    "name": "my-ten-puzzle",
+    "description": "ten puzzle solver by typescript",
+    "license": "MIT",
+    "version": "1.0.0",
+    "files": [
+        "dist"
+    ],
     "scripts": {
-        "run": "./node_modules/.bin/ts-node TenPuzzle.ts"
+        "build": "tsc",
+        "prepare": "npm run build"
     },
+    "main": "./dist/src/TenPuzzle.js",
+    "types": "./dist/src/TenPuzzle.d.ts",
     "dependencies": {
         "ts-node": "^10.9.2",
         "typescript": "^5.3.3",
@@ -9,5 +19,6 @@
     },
     "devDependencies": {
         "@types/node": "^20.11.19"
-    }
+    },
+    "author": "xxxasdfghjk"
 }
